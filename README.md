@@ -17,7 +17,7 @@ git clone --recurse-submodules https://github.com/hellokittyfan48/ww-pak-bypass.
 3. Compile in `Release | x64`
 4. Inject & Start
 
-## How to find the pattern
+## Finding the pattern
 1. Search for "Checking pak file %s. This may take a while..." in a disassembler/debugger
 2. Identify the sequence of bytes at the function's EP
 3. This is the pattern for OS_2.0.2:  `40 55 56 57 41 57 48 8d 6c 24 ? 48 81 ec ? ? ? ? 80 3d`
