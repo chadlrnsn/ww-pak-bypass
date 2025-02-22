@@ -1,15 +1,12 @@
 # WW Pak Bypass
-
 A modern C++ implementation of [shorekeeper-patch](https://github.com/thexeondev/shorekeeper-patch) for OS_2.0.2, designed to bypass pak file verification.
 
 ## Requirements
-
 - Visual Studio 2019 or later
 - Windows SDK 10.0 and above
 - C++17 or later
 
 ## Building from source
-
 1. Clone the repository with submodules:
 
 ```bash
@@ -20,14 +17,12 @@ git clone --recurse-submodules https://github.com/hellokittyfan48/ww-pak-bypass.
 3. Compile in `Release | x64`
 4. Inject & Start
 
-## Find signature
+## How to find the pattern
+1. Search for "Checking pak file %s. This may take a while..." in a disassembler/debugger
+2. Identify the sequence of bytes at the function's EP
+3. This is the pattern for OS_2.0.2:  `40 55 56 57 41 57 48 8d 6c 24 ? 48 81 ec ? ? ? ? 80 3d`
 
-Search for "Checking pak file "%s". This may take a while..." in a disassembler
-
-Or find this using cheat engine `40 55 56 57 41 57 48 8d 6c 24 ? 48 81 ec ? ? ? ? 80 3d`
-
-**Or make an actual signature:**
-
+**Cheat Engine disassembly:**
 ```asm
 Client-Win64-Shipping.exe+3FF8E50 - 40 55                 - push rbp  --------------------- We scaninng for this
 Client-Win64-Shipping.exe+3FF8E52 - 56                    - push rsi
@@ -45,7 +40,6 @@ Client-Win64-Shipping.exe+3FF8E81 - 74 06                 - je Client-Win64-Ship
 ```
 
 ## Need help?
-
 - You can join my Discord [here](https://hellokittyfan48.github.io/)
 
 ### Leave a 🌟 if you like it <3
